@@ -4,14 +4,15 @@ function toggleTheme() {
     body.classList.toggle('dark-theme');
 }
 
-window.addEventListener("load", construye);
+window.addEventListener("load", main);
 
-function construccion(){
+function main(){
     actualizaReloj();
     horasMenu();
     minMenu();
     segsMenu();
-
+    sonidoMenu();
+    formatoAudio();
 }
 
 function actualizaReloj(){
@@ -71,19 +72,75 @@ function sonidoMenu(){
     ];
     
     for (var i = 0; i < sonidos.lenght; i++) {
-        var option = document.createElement("opcion");
-        option.value = array[i].url; 
+        var opcion = document.createElement("opcion");
+        opcion.value = sonidos[i].url;
+        opcion.text = sonidos[i].name;
+        select.appendChild(opcion); 
     }
 }
 
+function formatoAudio() {
+    var myDiv = document.getElementById("myDiv");
+    var myAudio = document.createElement("audio");
 
+    myAudio.src = "https://freespecialeffects.co.uk/soundfx/cars/car_burnout.wav";
+    myAudio.id = "myAudio";
+    myDiv.appendChild(myAudio);
+}
 
+document.getElementById("BotonEstablecer").addEventListener("click", EstablecerAlarma);
+document.getElementById("BotonLimpiar").addEventListener("click", limpiarAlarma);
+document.getElementById("BotonSelect").addEventListener("change", ObtenerAudio);
 
+function ObtenerAudio(){
+    document.getElementById("myAudio").src = document.getElementById("BotonSelect").value;
+}
 
+function EstablecerAlarma() {
+    var hora2 = document.getElementById("alarmaHrs");
+    var minuto2 = document.getElementById("alarmaMin");
+    var segundo2 = document.getElementById("alarmaSeg");
 
+    var HoraEscogida = hora2.options[hora2.selectedIndex].value;
+    var MinutoEscogido = minuto2.options[minuto2.selectedIndex].value;
+    var SegundoEscogido = segundo2.options[segundo2.selectedIndex].value;
 
+    var TiempoAlarma = afegirZero(HoraEscogida) + ":" + afegirZero(MinutoEscogido) + ":" + afegirZero(SegundoEscogido);
 
+    document.getElementById("alarmaHrs").disabled = true;
+    document.getElementById("alarmaMin").disabled = true;
+    document.getElementById("alarmaSeg").disabled = true;
+    document.getElementById("Seleccion").disabled = true;
 
+    setInterval(function ReproducirSonidoAlarma() {
+        var momentoActual = new Date();
+        var hora = momentoActual.getHours();
+        var minuto = momentoActual.getMinutes();
+        var segundo = momentoActual.getSeconds();
+        var tiempo = afegirZero(hora) + ":" + afegirZero(minuto) + ":" + afegirZero(segundo);
+
+        if (tiempo == TiempoAlarma) {
+            myAudio.play();
+            myAudio.loop = true;
+        } 
+    }, 1000);
+}
+
+function afegirZero(i) {
+    if (i < 10) { i = "0" + i} ;
+    return i;
+}
+
+function limpiarAlarma() {
+    document.getElementById("alarmaHrs").disabled = false;
+    document.getElementById("alarmaMin").disabled = false;
+    document.getElementById("alarmaSeg").disabled = false;
+    document.getElementById("Seleccion").disabled = false;
+    document.getElementById("myAudio").disabled = false;
+    myAudio.pause();
+}
+
+/*
  function EstablecerAlarma() {   
     var alarmaFormato = prompt("Introduce la hora de la alarma (en formato HH:MM:SS)")
     var alarmaHora = alarmaFormato.substring(0,2)
@@ -111,7 +168,7 @@ function setTimer() {
 	setTimeout(function() {
 		alert("¡El temporizador ha finalizado!");
 	}, time * 1000);
-}
+}*/
 
 /* Dark/Light */
 function toggleTheme() {
