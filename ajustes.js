@@ -11,6 +11,34 @@ function actualizaReloj(){
     horaImprimible = hora + ":" + minuto + ":" + segundo
     
 document.getElementById("clock").innerHTML = horaImprimible
-var horaActual = setTimeout(function(){ actualizaReloj() }, 1000)
+var horaImprimible = setTimeout(function(){ actualizaReloj() }, 1000)
 }
 
+ function EstablecerAlarma() {   
+    var alarmaFormato = prompt("Introduce la hora de la alarma (en formato HH:MM:SS)")
+    var alarmaHora = alarmaFormato.substring(0,2)
+    var alarmaMinuto = alarmaFormato.substring(3,5)
+    var alarmaSegundo = alarmaFormato.substring(6,8)
+  
+    var alarma = new Date()
+    alarma.setHours(alarmaHora)
+    alarma.setMinutes(alarmaMinuto)
+    alarma.setSeconds(alarmaSegundo)    
+
+   var cuentaatras = alarma.getTime() - momentoActual.getTime()
+
+    setTimeout(function() {
+        alert("¡TIEMPO!")
+    }, cuentaatras)
+}
+
+function setTimer() {
+	var temporizadorformato = prompt("Introduce el tiempo del temporizador (en segundos):");
+	
+	var ahora = new Date().getTime();
+	var final = ahora + (temporizadorformato * 1000);
+	
+	setTimeout(function() {
+		alert("¡El temporizador ha finalizado!");
+	}, time * 1000);
+}
