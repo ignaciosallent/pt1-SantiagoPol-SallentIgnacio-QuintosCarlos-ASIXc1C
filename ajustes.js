@@ -1,18 +1,88 @@
-function actualizaReloj(){
-    var momentoActual = new Date()
-    var hora = momentoActual.getHours()
-    var minuto = momentoActual.getMinutes()
-    var segundo = momentoActual.getSeconds()
-
-    if (hora < 10) hora = "0" + hora
-    if (minuto < 10) minuto = "0" + minuto
-    if (segundo < 10) segundo = "0" + segundo
-   
-    horaImprimible = hora + ":" + minuto + ":" + segundo
-    
-document.getElementById("clock").innerHTML = horaImprimible
-var horaImprimible = setTimeout(function(){ actualizaReloj() }, 1000)
+/* Dark/Light */
+function toggleTheme() {
+    const body = document.querySelector('body');
+    body.classList.toggle('dark-theme');
 }
+
+window.addEventListener("load", construye);
+
+function construccion(){
+    actualizaReloj();
+    horasMenu();
+    minMenu();
+    segsMenu();
+
+}
+
+function actualizaReloj(){
+    var momentoActual = new Date();
+    var hora = momentoActual.getHours();
+    var minuto = momentoActual.getMinutes();
+    var segundo = momentoActual.getSeconds();
+    var horaImprimible = ComprovarZero(hora) + ":" + ComprovarZero(minuto) + ":" + ComprovarZero(segundo);
+    document.getElementById("horaImprimible").innerHTML = horaImprimible;
+    var t = setTimeout(actualizaReloj, 1000);
+}
+
+function ComprovarZero(i) {
+    if (i < 10) { i = "0" + i }
+    return i;
+ }
+
+function horasMenu(){
+    var select = document.getElementById("alarmaHrs");
+    var horas = 23;
+
+    for (i = 0; i <= horas; i++) {
+        select.options[select.options.lenght] = new Option(i < 10 ? "0" + i : i, i);
+    }
+}
+
+function minMenu(){
+    var select = document.getElementById("alarmaMin");
+    var minutos = 59;
+
+    for (i = 0; i <= minutos; i++) {
+        select.options[select.options.lenght] = new Option(i < 10 ? "0" + i : i, i);
+    }
+}
+
+function segsMenu(){
+    var select = document.getElementById("alarmaSeg");
+    var segundos = 59;
+
+    for (i = 0; i <= segundos; i++) {
+        select.options[select.options.lenght] = new Option(i < 10 ? "0" + i : i, i);
+    }
+}
+
+function sonidoMenu(){
+    var select = document.getElementById("Seleccion");
+
+    var sonidos = [
+        {
+            name: "Campanas Iglesia",
+            url: "https://freespecialeffects.co.uk/soundfx/bells/church_bells_02.wav"
+        },
+        {
+            name: "Quemando Rueda",
+            url:"https://freespecialeffects.co.uk/soundfx/cars/car_burnout.wav"
+        }
+    ];
+    
+    for (var i = 0; i < sonidos.lenght; i++) {
+        var option = document.createElement("opcion");
+        option.value = array[i].url; 
+    }
+}
+
+
+
+
+
+
+
+
 
  function EstablecerAlarma() {   
     var alarmaFormato = prompt("Introduce la hora de la alarma (en formato HH:MM:SS)")
@@ -41,10 +111,4 @@ function setTimer() {
 	setTimeout(function() {
 		alert("¡El temporizador ha finalizado!");
 	}, time * 1000);
-}
-
-/* Dark/Light */
-function toggleTheme() {
-    const body = document.querySelector('body');
-    body.classList.toggle('dark-theme');
 }
