@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="estilo.css">
     <script type="text/javascript" src="ajustes.js"></script>
 </head>
-<body onload="actualizaReloj()">
+<body class="light-theme" onload="actualizaReloj()">
     <div id="clockdate">
         <div class="clockdate-wrapper">
             <div id="clock"></div>
@@ -20,6 +20,9 @@
         </div>
         <div class="contenido">
             <button onclick="EstablecerAlarma()">Establecer Alarma</button>
+        </div>
+        <div>
+            <button onclick="toggleTheme()">Cambiar a tema oscuro</button>
         </div>
     </div>
 </body>

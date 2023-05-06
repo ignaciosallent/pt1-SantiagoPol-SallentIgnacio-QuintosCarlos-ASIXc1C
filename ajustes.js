@@ -42,3 +42,9 @@ function setTimer() {
 		alert("¡El temporizador ha finalizado!");
 	}, time * 1000);
 }
+
+/* Dark/Light */
+function toggleTheme() {
+    const body = document.querySelector('body');
+    body.classList.toggle('dark-theme');
+}

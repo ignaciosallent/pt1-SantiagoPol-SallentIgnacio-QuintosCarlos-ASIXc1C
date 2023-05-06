@@ -29,3 +29,13 @@
     font-family:arial,sans-serif;
     color:#fff;
 }
+
+/* Dark/Light */
+.light-theme {
+    background-color: #fff;
+    color: #000;
+}
+.dark-theme {
+    background-color: #000;
+    color: #fff;
+}
