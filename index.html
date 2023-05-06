@@ -1,5 +1,7 @@
+<!--
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title> RELOJ Y RULETA</title>
@@ -9,6 +11,7 @@
     <link rel="stylesheet" href="estilo.css">
     <script type="text/javascript" src="ajustes.js"></script>
 </head>
+
 <body class="light-theme" onload="actualizaReloj()">
     <div id="clockdate">
         <div class="clockdate-wrapper">
@@ -25,5 +28,41 @@
             <button onclick="toggleTheme()">Cambiar a tema oscuro</button>
         </div>
     </div>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> RELOJ Y RULETA</title>
+    <meta name="author" content = "Pol, Nacho y Carlos">
+    <meta name="description" content = "M04 UF3 A1 PT1 Eines Aula">
+    <meta name="dateCreated" content = "05/05/2023">
+    <link rel="stylesheet" href="estilo.css">
+    <script type="text/javascript" src="ajustes.js"></script>
+</head>
+<body>
+    <section id="seccion-hora">
+        <header><h1>HORA REAL</h1></header>
+        <div id="box_alarma">
+            <div id="tiempo">00:00:00</div>
+            <br>
+            <h3>Establecer Alarma</h3>
+            <select name="" id="alarmaHrs"></select>
+            <select name="" id="alarmaMin"></select>
+            <select name="" id="alarmaSeg"></select>
+            <br>
+            <br>
+            <div id="eleccion_alarma">
+                <label for="">Elige un Sonido:</label>
+                <br>
+                <select name="" id="Seleccion"></select>
+            </div>
+            <button id="botonEstablecerAlarma">Establecer Alarma</button>
+            <button id="botonReiniciarAlarma">Reiniciar Alarma</button>
+        </div>
+        <script src="ajustes.js"></script>
+    </section>
 </body>
 </html>
