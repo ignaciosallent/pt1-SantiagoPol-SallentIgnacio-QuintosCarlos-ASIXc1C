@@ -1,42 +1,3 @@
-<!--
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <title> RELOJ Y RULETA</title>
-    <meta name="author" content = "Pol, Nacho y Carlos">
-    <meta name="description" content = "M04 UF3 A1 PT1 Eines Aula">
-    <meta name="dateCreated" content = "05/05/2023">
-    <link rel="stylesheet" href="estilo.css">
-    <script type="text/javascript" src="ajustes.js"></script>
-</head>
-
-<body class="light-theme" onload="actualizaReloj()">
-    <div id="clockdate">
-        <div class="clockdate-wrapper">
-            <div id="clock"></div>
-            <div id="date"></div>
-        </div>
-        <div class="botones">
-            <button onclick="setTimer()" type="button">Establecer temporizador</button>
-        </div>
-        <div class="contenido">
-            <button onclick="EstablecerAlarma()">Establecer Alarma</button>
-        </div>
-        <div>
-            <button onclick="toggleTheme()">Cambiar a tema oscuro</button>
-        </div>
-        <div>
-            <p id="timer">00:00:00</p>
-            <button id="start">Start</button>
-            <button id="stop">Stop</button>
-            <button id="reset">Reset</button>
-        </div>
-    </div>
-</body>
-</html>
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,6 +28,9 @@
             </div>
             <button id="botonEstablecerAlarma">Establecer Alarma</button>
             <button id="botonReiniciarAlarma">Reiniciar Alarma</button>
+                <div>
+                    <button onclick="toggleTheme()">Cambiar de Tema</button>
+                </div>
         </div>
         <script src="ajustes.js"></script>
     </section>
