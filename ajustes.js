@@ -1,12 +1,6 @@
-/* Dark/Light */
-function toggleTheme() {
-    const body = document.querySelector('body');
-    body.classList.toggle('dark-theme');
-}
+window.addEventListener("load", buildIt);
 
-window.addEventListener("load", main);
-
-function main(){
+function buildIt() {
     actualizaReloj();
     horasMenu();
     minMenu();
@@ -21,8 +15,11 @@ function actualizaReloj(){
     var minuto = momentoActual.getMinutes();
     var segundo = momentoActual.getSeconds();
     var horaImprimible = ComprovarZero(hora) + ":" + ComprovarZero(minuto) + ":" + ComprovarZero(segundo);
-    document.getElementById("horaImprimible").innerHTML = horaImprimible;
-    var t = setTimeout(actualizaReloj, 1000);
+    document.getElementById("tiempo").innerHTML = horaImprimible;
+    var t = setTimeout(actualizaReloj, 1000);  /*ERROR, NO USO LA VARIABLE EN NINGUN LADO??! */
+    /* setTimeout(function() {
+		alert("¡El temporizador ha finalizado!");          CÓDIGO DE UN EJ. DIFERENTE, PUEDE AYUDAR? 
+	}, time * 1000); */
 }
 
 function ComprovarZero(i) {
@@ -35,7 +32,7 @@ function horasMenu(){
     var horas = 23;
 
     for (i = 0; i <= horas; i++) {
-        select.options[select.options.lenght] = new Option(i < 10 ? "0" + i : i, i);
+        select.options[select.options.length] = new Option(i < 10 ? "0" + i : i, i);
     }
 }
 
@@ -44,7 +41,7 @@ function minMenu(){
     var minutos = 59;
 
     for (i = 0; i <= minutos; i++) {
-        select.options[select.options.lenght] = new Option(i < 10 ? "0" + i : i, i);
+        select.options[select.options.length] = new Option(i < 10 ? "0" + i : i, i);
     }
 }
 
@@ -53,7 +50,7 @@ function segsMenu(){
     var segundos = 59;
 
     for (i = 0; i <= segundos; i++) {
-        select.options[select.options.lenght] = new Option(i < 10 ? "0" + i : i, i);
+        select.options[select.options.length] = new Option(i < 10 ? "0" + i : i, i);
     }
 }
 
@@ -71,16 +68,16 @@ function sonidoMenu(){
         }
     ];
     
-    for (var i = 0; i < sonidos.lenght; i++) {
+    for (var i = 0; i < sonidos.length; i++) {
         var opcion = document.createElement("opcion");
         opcion.value = sonidos[i].url;
         opcion.text = sonidos[i].name;
-        select.appendChild(opcion); 
+        select.appendChild(opcion);
     }
 }
 
 function formatoAudio() {
-    var myDiv = document.getElementById("myDiv");
+    var myDiv = document.getElementById("eleccion_alarma");
     var myAudio = document.createElement("audio");
 
     myAudio.src = "https://freespecialeffects.co.uk/soundfx/cars/car_burnout.wav";
@@ -88,12 +85,12 @@ function formatoAudio() {
     myDiv.appendChild(myAudio);
 }
 
-document.getElementById("BotonEstablecer").addEventListener("click", EstablecerAlarma);
-document.getElementById("BotonLimpiar").addEventListener("click", limpiarAlarma);
-document.getElementById("BotonSelect").addEventListener("change", ObtenerAudio);
+document.getElementById("botonEstablecerAlarma").addEventListener("click", EstablecerAlarma);
+document.getElementById("botonReiniciarAlarma").addEventListener("click", limpiarAlarma);
+document.getElementById("Seleccion").addEventListener("change", ObtenerAudio);
 
 function ObtenerAudio(){
-    document.getElementById("myAudio").src = document.getElementById("BotonSelect").value;
+    document.getElementById("myAudio").src = document.getElementById("Seleccion").value;
 }
 
 function EstablecerAlarma() {
@@ -140,41 +137,12 @@ function limpiarAlarma() {
     myAudio.pause();
 }
 
-/*
- function EstablecerAlarma() {   
-    var alarmaFormato = prompt("Introduce la hora de la alarma (en formato HH:MM:SS)")
-    var alarmaHora = alarmaFormato.substring(0,2)
-    var alarmaMinuto = alarmaFormato.substring(3,5)
-    var alarmaSegundo = alarmaFormato.substring(6,8)
-  
-    var alarma = new Date()
-    alarma.setHours(alarmaHora)
-    alarma.setMinutes(alarmaMinuto)
-    alarma.setSeconds(alarmaSegundo)    
-
-   var cuentaatras = alarma.getTime() - momentoActual.getTime()
-
-    setTimeout(function() {
-        alert("¡TIEMPO!")
-    }, cuentaatras)
-}
-
-function setTimer() {
-	var temporizadorformato = prompt("Introduce el tiempo del temporizador (en segundos):");
-	
-	var ahora = new Date().getTime();
-	var final = ahora + (temporizadorformato * 1000);
-	
-	setTimeout(function() {
-		alert("¡El temporizador ha finalizado!");
-	}, time * 1000);
-}*/
-
 /* Dark/Light */
 function toggleTheme() {
     const body = document.querySelector('body');
     body.classList.toggle('dark-theme');
 }
+
 
 /* Stopwatch beta 1 */
 let timerInterval;
