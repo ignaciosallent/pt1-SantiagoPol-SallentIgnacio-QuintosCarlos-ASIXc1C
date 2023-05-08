@@ -24,10 +24,14 @@
             <div id="eleccion_alarma">
                 <label for="">Elige un Sonido:</label>
                 <br>
-                <select name="" id="Seleccion"></select>
+                <select name="" id="sonidos">
+                    <option value ="campanas"> Campanas</option>
+                    <option value ="coches"> Coches</option>
+                    <option value ="gritos"> gritos</option>
+                </select>
             </div>
-            <button id="botonEstablecerAlarma">Establecer Alarma</button>
-            <button id="botonReiniciarAlarma">Reiniciar Alarma</button>
+            <button type="button" id="botonEstablecerAlarma" onclick="EstablecerAlarma()">Establecer Alarma</button>
+            <button id="botonReiniciarAlarma" onclick="limpiarAlarma()">Reiniciar Alarma</button>
                 <div>
                     <button onclick="toggleTheme()">Cambiar de Tema</button>
                 </div>

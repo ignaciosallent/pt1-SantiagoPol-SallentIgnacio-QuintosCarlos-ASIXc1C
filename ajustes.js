@@ -5,7 +5,7 @@ function buildIt() {
     horasMenu();
     minMenu();
     segsMenu();
-    sonidoMenu();
+    sonidoMenu2();
     formatoAudio();
 }
 
@@ -54,8 +54,14 @@ function segsMenu(){
     }
 }
 
+function sonidoMenu2(){
+    var sonidos = document.getElementById("sonidos").value;
+}
+
+
+/*
 function sonidoMenu(){
-    var select = document.getElementById("Seleccion");
+    var select = document.getElementById("sonidos");
 
     var sonidos = [
         {
@@ -69,12 +75,13 @@ function sonidoMenu(){
     ];
     
     for (var i = 0; i < sonidos.length; i++) {
-        var opcion = document.createElement("opcion");
-        opcion.value = sonidos[i].url;
-        opcion.text = sonidos[i].name;
-        select.appendChild(opcion);
+        var option = document.createElement("option");
+        option.value = sonidos[i].url;
+        option.text = sonidos[i].name;
+        select.appendChild(option);
     }
 }
+*/
 
 function formatoAudio() {
     var myDiv = document.getElementById("eleccion_alarma");
@@ -107,7 +114,7 @@ function EstablecerAlarma() {
     document.getElementById("alarmaHrs").disabled = true;
     document.getElementById("alarmaMin").disabled = true;
     document.getElementById("alarmaSeg").disabled = true;
-    document.getElementById("Seleccion").disabled = true;
+    document.getElementById("sonidos").disabled = true;
 
     setInterval(function ReproducirSonidoAlarma() {
         var momentoActual = new Date();
@@ -118,6 +125,7 @@ function EstablecerAlarma() {
 
         if (tiempo == TiempoAlarma) {
             myAudio.play();
+            document.getElementById("alarmaSeg").disabled = false;
             myAudio.loop = true;
         } 
     }, 1000);
@@ -132,7 +140,7 @@ function limpiarAlarma() {
     document.getElementById("alarmaHrs").disabled = false;
     document.getElementById("alarmaMin").disabled = false;
     document.getElementById("alarmaSeg").disabled = false;
-    document.getElementById("Seleccion").disabled = false;
+    document.getElementById("sonidos").disabled = false;
     document.getElementById("myAudio").disabled = false;
     myAudio.pause();
 }
