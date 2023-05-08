@@ -90,6 +90,10 @@ function formatoAudio() {
     myAudio.src = "https://freespecialeffects.co.uk/soundfx/cars/car_burnout.wav";
     myAudio.id = "myAudio";
     myDiv.appendChild(myAudio);
+
+    myAudio.src = "https://freespecialeffects.co.uk/soundfx/bells/church_bells_02.wav";
+    myAudio.id = "myAudio";
+    myDiv.appendChild(myAudio);
 }
 
 document.getElementById("botonEstablecerAlarma").addEventListener("click", EstablecerAlarma);
