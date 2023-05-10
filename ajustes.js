@@ -157,6 +157,7 @@ function toggleTheme() {
 
 
 /* Stopwatch beta 1 */
+/*
 let timerInterval;
 let seconds = 0;
 let minutes = 0;
@@ -197,3 +198,4 @@ function resetTimer() {
 startBtn.addEventListener("click", startTimer);
 stopBtn.addEventListener("click", stopTimer);
 resetBtn.addEventListener("click", resetTimer);
+*/
