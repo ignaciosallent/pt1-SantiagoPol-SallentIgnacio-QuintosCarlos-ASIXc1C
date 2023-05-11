@@ -153,3 +153,15 @@ function cambiarTema() {
     const body = document.querySelector('body');
     body.classList.toggle('dark-theme');
 }
+
+/* Cronometro */
+let tiempoTranscurrido = 0;
+function cronometroVamos() {
+    tiempoTranscurrido++;
+    const horas = Math.floor(tiempoTranscurrido / 3600);
+    const minutos = Math.floor((tiempoTranscurrido % 3600) / 60);
+    const segundos = tiempoTranscurrido % 60;
+    const tiempoFormateado =
+    `${horas.toString().padStart(2, '0')}:${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+    document.getElementById('cronometro').textContent = tiempoFormateado;
+}
