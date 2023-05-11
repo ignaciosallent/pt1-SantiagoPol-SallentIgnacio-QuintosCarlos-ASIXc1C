@@ -58,7 +58,6 @@ function sonidoMenu2(){
     var sonidos = document.getElementById("sonidos").value;
 }
 
-
 /*
 function sonidoMenu(){
     var select = document.getElementById("sonidos");
@@ -150,11 +149,10 @@ function limpiarAlarma() {
 }
 
 /* Dark/Light */
-function toggleTheme() {
+function cambiarTema() {
     const body = document.querySelector('body');
     body.classList.toggle('dark-theme');
 }
-
 
 /* Stopwatch beta 1 */
 /*
