@@ -39,7 +39,28 @@
             <button type="button" id="botonEstablecerAlarma" onclick="EstablecerAlarma()">Establecer Alarma</button>
             <button id="botonReiniciarAlarma" onclick="limpiarAlarma()">Reiniciar Alarma</button>
         </div>
-        <script src="ajustes.js"></script>
+        <script src="alarma.js"></script>
+    </section>
+    <section id="seccion-temporizador">
+        <h1>Contador</h1>
+        <audio id="portaaviones" src="/musicas/portaaviones.mp3"></audio>
+        <audio id="mario" src="/musicas/mario.mp3"></audio>
+        <audio id="dios" src="/musicas/dios.mp3"></audio>
+        <audio id="rumble" src="/musicas/rumble.mp3"></audio>
+        <div id="container">
+            <p id="hour-label" class="label">Hours</p><p id="min-label" class="label">Minutes</p><p id="sec-label" class="label">Seconds</p>
+            <input id="hour" type="number" max="99" min="0" value="0" class="time"><p id="p1" class="semicolon">:</p><input id="minute" type="number" max="60" min="0" value="0" class="time"><p id="p2" class="semicolon">:</p><input id="sec" type="number" max="60" min="0" value="0" class="time">
+            <label for=""></label>
+                    <select name="" id="sonidos-contador">
+                        <option value ="portaaviones"> Portaaviones</option>
+                        <option value ="mario"> Mario</option>
+                        <option value ="dios"> Dios</option>
+                        <option value ="rumble"> Rumble</option>
+                    </select>
+            <button id="start" class="btn">Start</button>
+            <button id="reset" class="btn">Reset</button>
+        </div>
+        <script src="temporizador.js"></script>
     </section>
     <section id="seccion-ruleta">
         <header><h1>RULETA</h1></header>
@@ -54,27 +75,6 @@
             </div>
         </div>
            <script src="ruleta.js"></script>
-    </section>
-    <section id="seccion-temporizador">
-        <h1>Contador</h1>
-        <audio id="portaaviones" src="/musicas/portaaviones.mp3"></audio>
-        <audio id="mario" src="/mario.mp3"></audio>
-        <audio id="dios" src="/musicas/dios.mp3"></audio>
-        <audio id="rumble" src="/rumble.mp3"></audio>
-        <div id="container">
-            <p id="hour-label" class="label">Hours</p><p id="min-label" class="label">Minutes</p><p id="sec-label" class="label">Seconds</p>
-            <input id="hour" type="number" max="99" min="0" value="0" class="time"><p id="p1" class="semicolon">:</p><input id="minute" type="number" max="60" min="0" value="0" class="time"><p id="p2" class="semicolon">:</p><input id="sec" type="number" max="60" min="0" value="0" class="time">
-            <label for=""></label>
-                    <select name="" id="sonidos-contador">
-                        <option value ="portaaviones"> Portaaviones</option>
-                        <option value ="mario"> Mario</option>
-                        <option value ="dios"> Dios</option>
-                        <option value ="rumble"> Rumble</option>
-                    </select>
-            <button id="start" class="btn">Start</button>
-            <button id="reset" class="btn">Reset</button>
-        </div>
-        <script src="timer.js"></script>
     </section>
     <section id="seccion-cronometro">
         <div>

@@ -29,12 +29,12 @@ reset.addEventListener('click', function(){
 })
 
 select.addEventListener('change', function(){
+    //get the selected audio file based on the selected option
+    var audioFile = select.option[select.selectedIndex].value + '.mp3';
     //log para ver si se ejecuta el cambio de seleccion
     console.log('Option changed:', select.value);
     //Verificacion de si la tura de los archivos de audio se esta generando correctamete
     console.log('Audio file:', audioFile);
-    //get the selected audio file based on the selected option
-    var audioFile = select.options[select.selectedIndex].value + '.mp3';
     //create a new Audio object with the selected file
     audio = new Audio(audioFile);
 })

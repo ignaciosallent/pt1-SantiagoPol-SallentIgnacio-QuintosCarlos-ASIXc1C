@@ -44,7 +44,7 @@ const array_alumnos=
             let pos_ini = 0;
             let clic = 0;
             let movement;
-            let timer;
+            let crono;
 
             function Girar() {
                   if (clic == 0) {
@@ -54,7 +54,7 @@ const array_alumnos=
                       pos_ini += 10;
                       canvas.style.transform = 'rotate(' + pos_ini + 'deg)';
                 }, 10);
-                timer = setTimeout(function() {
+                crono = setTimeout(function() {
                       clearInterval(movement);
                       clic = 0;
                       document.getElementById("idestado").innerHTML = "Girar";
@@ -63,7 +63,7 @@ const array_alumnos=
                    clic = 1;
                 document.getElementById("idestado").innerHTML = "Detener";
               } else {
-                clearTimeout(timer);
+                clearTimeout(crono);
                 clearInterval(movement);
                 clic = 0;
                 document.getElementById("idestado").innerHTML = "Girar";
