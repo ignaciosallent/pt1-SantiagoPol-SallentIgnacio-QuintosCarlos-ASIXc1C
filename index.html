@@ -30,9 +30,9 @@
             <div id="eleccion_alarma">
                 <label for="">Elige un Sonido:</label>
                 <br>
-                <select name="" id="sonidos">
-                    <option value ="campanas"> Campanas</option>
-                    <option value ="coches"> Coches</option>
+                <select name="sonidos-alarma" id="sonidos-alarma" onchange="ObtenerAudio()">
+                    <option value ="https://freespecialeffects.co.uk/soundfx/bells/church_bells_02.wav"> Campanas</option>
+                    <option value ="https://freespecialeffects.co.uk/soundfx/cars/car_burnout.wav"> Coches</option>
                     <option value ="gritos"> gritos</option>
                 </select>
             </div>
@@ -65,7 +65,7 @@
             <p id="hour-label" class="label">Hours</p><p id="min-label" class="label">Minutes</p><p id="sec-label" class="label">Seconds</p>
             <input id="hour" type="number" max="99" min="0" value="0" class="time"><p id="p1" class="semicolon">:</p><input id="minute" type="number" max="60" min="0" value="0" class="time"><p id="p2" class="semicolon">:</p><input id="sec" type="number" max="60" min="0" value="0" class="time">
             <label for=""></label>
-                    <select name="" id="sonidos">
+                    <select name="" id="sonidos-contador">
                         <option value ="portaaviones"> Portaaviones</option>
                         <option value ="mario"> Mario</option>
                         <option value ="dios"> Dios</option>

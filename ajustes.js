@@ -55,7 +55,7 @@ function segsMenu(){
 }
 
 function sonidoMenu2(){
-    var sonidos = document.getElementById("sonidos").value;
+    var sonidos = document.getElementById("sonidos-alarma").value;
 }
 
 /*
@@ -81,58 +81,94 @@ function sonidoMenu(){
     }
 }
 */
-
 function formatoAudio() {
     var myDiv = document.getElementById("eleccion_alarma");
-    var myAudio = document.createElement("audio");
 
-    myAudio.src = "https://freespecialeffects.co.uk/soundfx/cars/car_burnout.wav";
-    myAudio.id = "myAudio";
-    myDiv.appendChild(myAudio);
+    var myAudio1 = new Audio();
+    myAudio1.src = "https://freespecialeffects.co.uk/soundfx/bells/church_bells_02.wav";
+    myAudio1.id = "myAudio1";
+    document.body.appendChild(myAudio1);
 
-    myAudio.src = "https://freespecialeffects.co.uk/soundfx/bells/church_bells_02.wav";
-    myAudio.id = "myAudio";
-    myDiv.appendChild(myAudio);
+    var myAudio2 = new Audio();
+    myAudio2.src = "https://freespecialeffects.co.uk/soundfx/cars/car_burnout.wav";
+    myAudio2.id = "myAudio2";
+    document.body.appendChild(myAudio2);
 }
+
+
 
 document.getElementById("botonEstablecerAlarma").addEventListener("click", EstablecerAlarma);
 document.getElementById("botonReiniciarAlarma").addEventListener("click", limpiarAlarma);
-document.getElementById("Seleccion").addEventListener("change", ObtenerAudio);
+document.getElementById("sonidos-alarma").addEventListener("change", ObtenerAudio);
 
-function ObtenerAudio(){
-    document.getElementById("myAudio").src = document.getElementById("Seleccion").value;
+function ObtenerAudio() {
+    myAudio1.volume = 1;
+    myAudio2.volume = 1;
+    var seleccion = document.getElementById("sonidos-alarma").value;
+    if (seleccion === "https://freespecialeffects.co.uk/soundfx/bells/church_bells_02.wav") {
+        document.getElementById("myAudio1").play();
+    } else if (seleccion === "https://freespecialeffects.co.uk/soundfx/cars/car_burnout.wav") {
+        document.getElementById("myAudio2").play();
+    }
 }
+
+
+var myAlarm;
+
+var myAlarm;
 
 function EstablecerAlarma() {
-    var hora2 = document.getElementById("alarmaHrs");
-    var minuto2 = document.getElementById("alarmaMin");
-    var segundo2 = document.getElementById("alarmaSeg");
+  var hrs = document.getElementById("alarmaHrs").value;
+  var min = document.getElementById("alarmaMin").value;
+  var seg = document.getElementById("alarmaSeg").value;
+  var sonido = document.getElementById("sonidos-alarma").value;
 
-    var HoraEscogida = hora2.options[hora2.selectedIndex].value;
-    var MinutoEscogido = minuto2.options[minuto2.selectedIndex].value;
-    var SegundoEscogido = segundo2.options[segundo2.selectedIndex].value;
+  var alarma = new Date();
+  alarma.setHours(hrs);
+  alarma.setMinutes(min);
+  alarma.setSeconds(seg);
 
-    var TiempoAlarma = afegirZero(HoraEscogida) + ":" + afegirZero(MinutoEscogido) + ":" + afegirZero(SegundoEscogido);
+  var ahora = new Date();
 
-    document.getElementById("alarmaHrs").disabled = true;
-    document.getElementById("alarmaMin").disabled = true;
-    document.getElementById("alarmaSeg").disabled = true;
-    document.getElementById("sonidos").disabled = true;
+  if (alarma <= ahora) {
+    alert("Por favor seleccione una hora en el futuro.");
+    return;
+  }
 
-    setInterval(function ReproducirSonidoAlarma() {
-        var momentoActual = new Date();
-        var hora = momentoActual.getHours();
-        var minuto = momentoActual.getMinutes();
-        var segundo = momentoActual.getSeconds();
-        var tiempo = afegirZero(hora) + ":" + afegirZero(minuto) + ":" + afegirZero(segundo);
+  document.getElementById("botonEstablecerAlarma").disabled = true;
 
-        if (tiempo == TiempoAlarma) {
-            myAudio.play();
-            document.getElementById("alarmaSeg").disabled = false;
-            myAudio.loop = true;
-        } 
-    }, 1000);
+  myAlarm = new Audio(sonido);
+
+  var intervalId = setInterval(function() {
+    ahora = new Date();
+    if (alarma <= ahora) {
+      myAlarm.play();
+      alert("¡Es hora de levantarse!");
+      clearInterval(intervalId);
+      document.getElementById("botonEstablecerAlarma").disabled = false;
+    }
+  }, 1000);
 }
+
+function limpiarAlarma() {
+  if (myAlarm) {
+    myAlarm.pause();
+    myAlarm.currentTime = 0;
+  }
+
+  document.getElementById("botonEstablecerAlarma").disabled = false;
+}
+
+
+function ComprovarZero(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
+
+
+
 
 function afegirZero(i) {
     if (i < 10) { i = "0" + i} ;
