@@ -1,36 +1,3 @@
-/*.clockdate-wrapper {
-    background-color: #333;
-    padding:25px;
-    max-width:350px;
-    width:100%;
-    text-align:center;
-    border-radius:5px;
-    margin:0 auto;
-    margin-top:15%;
-}
-#clock{
-    background-color:#333;
-    font-family: sans-serif;
-    font-size:60px;
-    text-shadow:0px 0px 1px #fff;
-    color:#fff;
-}
-#clock span {
-    color:#888;
-    text-shadow:0px 0px 1px #333;
-    font-size:30px;
-    position:relative;
-    top:-27px;
-    left:-10px;
-}
-#date {
-    letter-spacing:10px;
-    font-size:14px;
-    font-family:arial,sans-serif;
-    color:#fff;
-}
-*/
-
 /* Dark/Light */
 .light-theme {
     background-color: #fff;
@@ -41,8 +8,14 @@
     color: #fff;
 }
 
+.tema{
+    
+}
+
+/*SECCIONES*/
 section{
-    min-height: 100vh;
+    margin-bottom: 70px;
+    margin-top: 70px;
 }
 
 /*ALARMA*/
@@ -108,3 +81,22 @@ button:hover {
     background-color: rgb(181, 114, 13);
 }
 
+/*RULETA*/
+
+.Alumnos{
+	margin-top: 20px;
+	text-align: center;
+	margin: auto;
+	position: relative;
+}
+.mark-winner{
+	position:absolute;
+	clip-path: polygon(0 10px,60px 0,60px 20px);
+	background: red;
+	width: 60px;
+	height: 20px;
+	top: 45%;
+	right: -20%;
+	z-index: 10;
+	box-shadow: 0 0 3px #33333399;
+}
