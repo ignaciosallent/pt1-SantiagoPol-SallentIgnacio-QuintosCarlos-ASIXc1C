@@ -139,7 +139,8 @@ button:hover {
     grid-area: 1 / 4 / 1 / 3;
 }
 
-/*times*/
+/*horas, minutos y ":" de la seccion alarma: */
+
 .time {
     justify-self: center;
     align-self: center;
