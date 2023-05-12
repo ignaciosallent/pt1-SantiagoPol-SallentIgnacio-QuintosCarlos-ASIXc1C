@@ -1,6 +1,6 @@
 var start = document.getElementById('start');
 var reset = document.getElementById('reset');
-var select = document.getElementById('sonidos');
+var select = document.getElementById('sonidos-contador');
 var audio;
 
 var h = document.getElementById("hour");
@@ -18,6 +18,7 @@ start.addEventListener('click', function(){
         }, 1000);
     }
     startInterval();
+    console.log('Boton Start, Variable inicializada', start.value);
 })
 
 reset.addEventListener('click', function(){
@@ -26,11 +27,12 @@ reset.addEventListener('click', function(){
     s.value = 0;
     //stop the timer after pressing "reset"
     stopInterval()
+    console.log('Boton Reset, Variable Reiniciada', reset.value);
 })
 
 select.addEventListener('change', function(){
     //get the selected audio file based on the selected option
-    var audioFile = select.option[select.selectedIndex].value + '.mp3';
+    var audioFile = 'musicas/' + select.value + '.mp3';
     //log para ver si se ejecuta el cambio de seleccion
     console.log('Option changed:', select.value);
     //Verificacion de si la tura de los archivos de audio se esta generando correctamete
