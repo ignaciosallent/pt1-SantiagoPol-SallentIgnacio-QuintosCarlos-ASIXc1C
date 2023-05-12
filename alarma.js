@@ -5,7 +5,6 @@ function buildIt() {
     horasMenu();
     minMenu();
     segsMenu();
-    sonidoMenu2();
     formatoAudio();
 }
 
@@ -16,10 +15,7 @@ function actualizaReloj(){
     var segundo = momentoActual.getSeconds();
     var horaImprimible = ComprovarZero(hora) + ":" + ComprovarZero(minuto) + ":" + ComprovarZero(segundo);
     document.getElementById("tiempo").innerHTML = horaImprimible;
-    var t = setTimeout(actualizaReloj, 1000);  /*ERROR, NO USO LA VARIABLE EN NINGUN LADO??! */
-    /* setTimeout(function() {
-		alert("¡El temporizador ha finalizado!");          CÓDIGO DE UN EJ. DIFERENTE, PUEDE AYUDAR? 
-	}, time * 1000); */
+    var t = setTimeout(actualizaReloj, 1000);
 }
 
 function ComprovarZero(i) {
@@ -54,54 +50,6 @@ function segsMenu(){
     }
 }
 
-function sonidoMenu2(){
-    var sonidos = document.getElementById("sonidos-alarma").value;
-}
-
-/*
-function sonidoMenu(){
-    var select = document.getElementById("sonidos");
-
-    var sonidos = [
-        {
-            name: "Campanas Iglesia",
-            url: "https://freespecialeffects.co.uk/soundfx/bells/church_bells_02.wav"
-        },
-        {
-            name: "Quemando Rueda",
-            url:"https://freespecialeffects.co.uk/soundfx/cars/car_burnout.wav"
-        }
-    ];
-    
-    for (var i = 0; i < sonidos.length; i++) {
-        var option = document.createElement("option");
-        option.value = sonidos[i].url;
-        option.text = sonidos[i].name;
-        select.appendChild(option);
-    }
-}
-*/
-function formatoAudio() {
-    var myDiv = document.getElementById("eleccion_alarma");
-
-    var myAudio1 = new Audio();
-    myAudio1.src = "musicas/campanas.mp3";
-    myAudio1.id = "myAudio1";
-    document.body.appendChild(myAudio1);
-
-    var myAudio2 = new Audio();
-    myAudio2.src = "musicas/coche.mp3";
-    myAudio2.id = "myAudio2";
-    document.body.appendChild(myAudio2);
-
-    var myAudio3 = new Audio();
-    myAudio3.src = "musicas/gritos.mp3";
-    myAudio3.id = "myAudio3";
-    document.body.appendChild(myAudio3);
-}
-
-
-
 
 document.getElementById("botonEstablecerAlarma").addEventListener("click", EstablecerAlarma);
 document.getElementById("botonReiniciarAlarma").addEventListener("click", limpiarAlarma);
@@ -120,9 +68,6 @@ function ObtenerAudio() {
     }
 
 }
-
-
-var myAlarm;
 
 var myAlarm;
 
@@ -159,16 +104,6 @@ function EstablecerAlarma() {
   }, 1000);
 }
 
-function limpiarAlarma() {
-  if (myAlarm) {
-    myAlarm.pause();
-    myAlarm.currentTime = 0;
-  }
-
-  document.getElementById("botonEstablecerAlarma").disabled = false;
-}
-
-
 function ComprovarZero(i) {
   if (i < 10) {
     i = "0" + i;
@@ -176,12 +111,18 @@ function ComprovarZero(i) {
   return i;
 }
 
-
-
-
 function afegirZero(i) {
     if (i < 10) { i = "0" + i} ;
     return i;
+}
+
+function limpiarAlarma() {
+  if (myAlarm) {
+    myAlarm.pause();
+    myAlarm.currentTime = 0;
+  }
+
+  document.getElementById("botonEstablecerAlarma").disabled = false;
 }
 
 function limpiarAlarma() {
@@ -197,16 +138,4 @@ function limpiarAlarma() {
 function cambiarTema() {
     const body = document.querySelector('body');
     body.classList.toggle('dark-theme');
-}
-
-/* Cronometro */
-let tiempoTranscurrido = 0;
-function cronometroVamos() {
-    tiempoTranscurrido++;
-    const horas = Math.floor(tiempoTranscurrido / 3600);
-    const minutos = Math.floor((tiempoTranscurrido % 3600) / 60);
-    const segundos = tiempoTranscurrido % 60;
-    const tiempoFormateado =
-    `${horas.toString().padStart(2, '0')}:${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
-    document.getElementById('cronometro').textContent = tiempoFormateado;
 }
