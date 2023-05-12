@@ -1,4 +1,4 @@
-/* Dark/Light */
+/* TEMA OSCURO */
 .light-theme {
     background-color: #fff;
     color: #000;
@@ -18,7 +18,7 @@ section{
     margin-top: 70px;
 }
 
-/*ALARMA*/
+
 body {
     font-family: monospace, sans-serif;
     font-size: 20px;
@@ -31,6 +31,14 @@ body {
     background-color:cornflowerblue;
     color: black
 }
+
+h3 {
+    color:black;
+    margin-top: -20px;
+    margin-bottom: 10px;
+}
+
+/*ALARMA*/
 
 #box_alarma {
     width: 100%;
@@ -48,11 +56,7 @@ body {
     margin-top: -65px;
 }
 
-h3 {
-    color:black;
-    margin-top: -20px;
-    margin-bottom: 10px;
-}
+
 
 #alarmaHrs,
 #alarmaMin, 
