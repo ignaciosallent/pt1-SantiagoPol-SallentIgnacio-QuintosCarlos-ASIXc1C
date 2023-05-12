@@ -85,15 +85,21 @@ function formatoAudio() {
     var myDiv = document.getElementById("eleccion_alarma");
 
     var myAudio1 = new Audio();
-    myAudio1.src = "https://freespecialeffects.co.uk/soundfx/bells/church_bells_02.wav";
+    myAudio1.src = "musicas/campanas.mp3";
     myAudio1.id = "myAudio1";
     document.body.appendChild(myAudio1);
 
     var myAudio2 = new Audio();
-    myAudio2.src = "https://freespecialeffects.co.uk/soundfx/cars/car_burnout.wav";
+    myAudio2.src = "musicas/coche.mp3";
     myAudio2.id = "myAudio2";
     document.body.appendChild(myAudio2);
+
+    var myAudio3 = new Audio();
+    myAudio3.src = "musicas/gritos.mp3";
+    myAudio3.id = "myAudio3";
+    document.body.appendChild(myAudio3);
 }
+
 
 
 
@@ -105,11 +111,14 @@ function ObtenerAudio() {
     myAudio1.volume = 1;
     myAudio2.volume = 1;
     var seleccion = document.getElementById("sonidos-alarma").value;
-    if (seleccion === "https://freespecialeffects.co.uk/soundfx/bells/church_bells_02.wav") {
+    if (seleccion === "musicas/campanas.mp3") {
         document.getElementById("myAudio1").play();
-    } else if (seleccion === "https://freespecialeffects.co.uk/soundfx/cars/car_burnout.wav") {
+    } if (seleccion === "musicas/coche.mp3") {
         document.getElementById("myAudio2").play();
+    } else if (seleccion == "musicas/gritos.mp3") {
+        document.getElementById("myAudio3").play();
     }
+
 }
 
 
