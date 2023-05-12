@@ -105,13 +105,12 @@ button:hover {
 
 #container {
     height: 200px;
-    width: 700px;
+    width: 550px;
     background-color: #F5E4C3;
     margin: 0 auto;
     border: 5px solid #88B169;
-
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
 }
 
@@ -125,15 +124,15 @@ button:hover {
 }
 
 #hour-label {
-    grid-area: 1 / 2 / 1 / 3;
+    grid-area: 1 / 2 / 1 / 1;
 }
 
 #min-label {
-    grid-area: 1 / 3 / 1 / 4;
+    grid-area: 1 / 3 / 1 / 2;
 }
 
 #sec-label {
-    grid-area: 1 / 4 / 1 / 5;
+    grid-area: 1 / 4 / 1 / 3;
 }
 
 /*times*/
@@ -149,7 +148,7 @@ button:hover {
 }
 
 #hour {
-    grid-area: 2 / 2 / 2 / 3;
+    grid-area: 2 / 1 / 2 / 1;
 }
 
 .semicolon {
@@ -157,22 +156,22 @@ button:hover {
     align-self: center;
 
     font-size: 30px;
-    margin: 0;
 }
+
 #p1 {
-    grid-area: 2 / 2 / 2 / 4;
+    grid-area: 2 / 1 / 2 / 3;
 }
 
 #minute {
-    grid-area: 2 / 3 / 2 / 4;
+    grid-area: 2 / 2 / 2 / 2;
 }
 
 #p2 {
-    grid-area: 2 / 3 / 2 / 5;
+    grid-area: 2 / 2 / 2 / 5;
 }
 
 #sec {
-    grid-area: 2 / 4 / 2 / 5;
+    grid-area: 2 / 3 / 2 / 5;
 }
 
 /*buttons*/
@@ -183,20 +182,20 @@ button:hover {
     width: 100px;
     height: 40px;
 
-    font-size: 30px;
+    font-size: 15px;
     justify-self: center;
 }
 
 #start {
-    grid-area: 3 / 2 / 3 / 5;
+    grid-area: 3 / 2 / 3 / 2;
 }
 
 #reset {
-    grid-area: 3 / 3 / 3 / 6;
+    grid-area: 3 / 3 / 3 / 3;
 }
 
 #sonidos-contador {
-    grid-area: 3 / 1 / 3 / 4;
+    grid-area: 3 / 1 / 3 / 2;
     margin-right: auto;
     margin-left: auto;
     height: 40px;
